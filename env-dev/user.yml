@@ -1,0 +1,6 @@
+component_name: user
+
+configmap_data:
+  MONGO: "true"
+  MONGO_URL: "mongodb://mongodb-dev.uzma83.shop:27017/users"
+  REDIS_URL: "redis://redis-dev.uzma83.shop:6379"

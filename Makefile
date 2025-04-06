@@ -1,9 +1,9 @@
 default:
 	git pull
-	helm upgrade -i $(component) . -f env-$(env)/$(component).yml
+	helm upgrade -i $(component) . -f env-$(env)/$(component).yaml
 debug:
 	git pull
-	helm upgrade -i $(component) . -f env-$(env)/$(component).yml --debug
+	helm upgrade -i $(component) . -f env-$(env)/$(component).yaml --debug
 
 dev:
 	git pull

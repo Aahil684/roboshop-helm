@@ -3,6 +3,6 @@ kind: configMap
 metadata:
   name: {{ .Values.component_name }}
    {{- with .Values.configmap_data }}
-   data:
+data:
      {{- toYaml . | nindent 2 }}
     {{- end }}

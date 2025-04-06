@@ -1,10 +1,10 @@
-{{ if .values.schema.enabled }}
+{{ if .Values.schema.enabled }}
 {{- range .Values.schema.jobs }}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ $.values.component_name }}-{{ . }}
+  name: {{ $.Values.component_name }}-{{ . }}
 spec:
   template:
     spec:
@@ -13,10 +13,10 @@ spec:
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           envFrom:
             - configMapRef:
-                name: {{ $.values.component_name }}
+                name: {{ $.Values.component_name }}
           env:
             - name: SCHEMA_FILE
-              value: db/{{ . }}.{{ $.values.schema.extension }}
+              value: db/{{ . }}.{{ $.Values.schema.extension }}
       restartPolicy: Never
   backoffLimit: 4
 {{ end }}

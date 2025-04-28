@@ -6,8 +6,8 @@ component_name=$1
 env=$2
 imageTag=$3
 
-argocd app create $(component_name)  --upsert --repo https://github.com/Aahil684/roboshop-helm --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values  env-$(env)/$(component_name).yaml --helm-set imageTag=$(imageTag)
-argocd app sync $(component_name)
+argocd app create ${component_name} --upsert --repo https://github.com/Aahil684/roboshop-helm --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values env-${env}/${component_name}.yaml --helm-set imageTag=${imageTag}
+argocd app sync ${component_name}
 
 
 
